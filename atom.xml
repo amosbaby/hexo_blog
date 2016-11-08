@@ -5,7 +5,7 @@
   <link href="/hexo_blog/atom.xml" rel="self"/>
   
   <link href="https://amosbaby.github.io/"/>
-  <updated>2016-11-08T06:01:29.000Z</updated>
+  <updated>2016-11-08T09:22:46.000Z</updated>
   <id>https://amosbaby.github.io/</id>
   
   <author>
@@ -14,6 +14,143 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>swift字符串处理小实贱</title>
+    <link href="https://amosbaby.github.io/2016/11/08/swift%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%B0%8F%E5%AE%9E%E8%B4%B1/"/>
+    <id>https://amosbaby.github.io/2016/11/08/swift字符串处理小实贱/</id>
+    <published>2016-11-08T09:06:45.000Z</published>
+    <updated>2016-11-08T09:22:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>背景： 最近开始系统的学习swift，发现swift的String类型的操作并没有ObjectC中那么简单。</p>
+</blockquote>
+<h3 id="区别如下：（也许我的见解会有误差，如有不对敬请告知）"><a href="#区别如下：（也许我的见解会有误差，如有不对敬请告知）" class="headerlink" title="区别如下：（也许我的见解会有误差，如有不对敬请告知）"></a>区别如下：（也许我的见解会有误差，如有不对敬请告知）</h3><hr>
+<ol>
+<li><p>OC中取一个字符串的长度（字符个数，官方说明the individual characters of composed character sequences）可以使用 <strong><em>str.length</em></strong> 就可以了，而swift使用 <strong><em>tr.characters.count</em></strong> </p>
+</li>
+<li><p>OC中获取字符串的子串一般使用 <strong><em>substringWithRange:</em></strong>，<strong><em>substringFromIndex</em></strong> ,  <strong><em>substringToIndex</em></strong> 就可以了，而swift中String类型直接是没有对应的方法的</p>
+</li>
+</ol>
+<a id="more"></a>
+<blockquote>
+<p>以前都是伸手党，这次认真的学习swift，打算戒掉什么都依赖别人的坏习惯，于是真对上述两点自己写了 <strong>String类型的extension，其中包括了获取String字符个数和子串的便捷方法，如果不对，请告知，共同进步</strong></p>
+</blockquote>
+<h2 id="有如下方法："><a href="#有如下方法：" class="headerlink" title="有如下方法："></a>有如下方法：</h2><ol>
+<li>获取字符串的字符个数–也就是长度 : 属性length，可以用OC同样的方式调用</li>
+<li><p>根据下标数字获取字符串对应的String.Index : </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getIndex(index: Int) -&gt; String.Index</div></pre></td></tr></table></figure>
+</li>
+<li><p>根据指定下标和指定的偏移量获取字符串对应的String.Index :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getIndex(index: String.Index, length: Int) -&gt; String.Index</div></pre></td></tr></table></figure>
+</li>
+<li><p>根据指定起始下标获取String类型的子字符串 : </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getSubString(fromIndex:Int, toIndex:Int) -&gt; String</div></pre></td></tr></table></figure>
+</li>
+<li><p>根据开始下标和长度(偏移量)获取String的子字符串 : <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getSubString(fromIndex:Int,length:Int) -&gt; String</div></pre></td></tr></table></figure></p>
+</li>
+</ol>
+<p>代码如下：</p>
+<hr>
+<pre><code>extension String{
+
+    /// 获取字符串的字符个数--也就是长度
+    var length : Int {
+        get{
+            return self.lengthOfBytes(using: String.Encoding.utf8)
+//            return self.characters.count
+        }
+    }
+
+
+    /// 根据下标数字获取字符串对应的String.Index
+    ///
+    /// - parameter index: 字符串数值下标
+    ///
+    /// - returns: String.Index
+    func getIndex(index: Int) -&gt; String.Index {
+        return self.index(self.startIndex, offsetBy: index , limitedBy: self.endIndex) ??  self.endIndex
+    }
+
+
+    /// 根据指定下标和指定的偏移量获取字符串对应的String.Index
+    ///
+    /// - parameter index:  指定的String.Index
+    /// - parameter length:
+    ///
+    /// - returns: 偏移量
+    func getIndex(index: String.Index, length: Int) -&gt; String.Index {
+        return self.index(index, offsetBy: length, limitedBy: self.endIndex) ??  self.endIndex
+    }
+
+
+    /// 根据指定起始下标获取String类型的子字符串
+    ///
+    /// - parameter fromIndex: 开始下标
+    /// - parameter toIndex:   结束下标
+    ///
+    /// - returns: 对应的字符串
+    func getSubString(fromIndex:Int, toIndex:Int) -&gt; String {
+
+        var str: String = &quot;&quot;
+        let si = self.getIndex(index: fromIndex)
+        let ti = self.getIndex(index: toIndex)
+        for index in self.characters.indices {
+
+            if index &gt;= si &amp;&amp; index &lt;= ti {
+                str.append(self[index])
+            }
+
+
+        }
+        return str
+    }
+
+
+    /// 根据开始下标和长度(偏移量)获取String的子字符串
+    ///
+    /// - parameter fromIndex: 开始下标
+    /// - parameter length:    所取长度
+    ///
+    /// - returns: 子字符串
+    func getSubString(fromIndex:Int,length:Int) -&gt; String {
+
+        var str: String = &quot;&quot;
+        let si = self.getIndex(index: fromIndex)
+        let ti = self.getIndex(index: si, length:length)
+        for index in self.characters.indices {
+
+            if index &gt;= si &amp;&amp; index &lt;= ti {
+                str.append(self[index])
+            }
+
+
+        }
+        return str
+    }
+}
+</code></pre><p>写到这儿，不管这些方法实用不实用，心里也很有成就感，按照自己的理解去做，去实现。欢迎批评指正。。。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;背景： 最近开始系统的学习swift，发现swift的String类型的操作并没有ObjectC中那么简单。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;区别如下：（也许我的见解会有误差，如有不对敬请告知）&quot;&gt;&lt;a href=&quot;#区别如下：（也许我的见解会有误差，如有不对敬请告知）&quot; class=&quot;headerlink&quot; title=&quot;区别如下：（也许我的见解会有误差，如有不对敬请告知）&quot;&gt;&lt;/a&gt;区别如下：（也许我的见解会有误差，如有不对敬请告知）&lt;/h3&gt;&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;OC中取一个字符串的长度（字符个数，官方说明the individual characters of composed character sequences）可以使用 &lt;strong&gt;&lt;em&gt;str.length&lt;/em&gt;&lt;/strong&gt; 就可以了，而swift使用 &lt;strong&gt;&lt;em&gt;tr.characters.count&lt;/em&gt;&lt;/strong&gt; &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;OC中获取字符串的子串一般使用 &lt;strong&gt;&lt;em&gt;substringWithRange:&lt;/em&gt;&lt;/strong&gt;，&lt;strong&gt;&lt;em&gt;substringFromIndex&lt;/em&gt;&lt;/strong&gt; ,  &lt;strong&gt;&lt;em&gt;substringToIndex&lt;/em&gt;&lt;/strong&gt; 就可以了，而swift中String类型直接是没有对应的方法的&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="swift" scheme="https://amosbaby.github.io/categories/swift/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>手势密码 swift3.0版</title>
@@ -54,13 +191,13 @@
       <category term="swift" scheme="https://amosbaby.github.io/categories/swift/"/>
     
     
-      <category term="swift" scheme="https://amosbaby.github.io/tags/swift/"/>
-    
       <category term="绘图" scheme="https://amosbaby.github.io/tags/%E7%BB%98%E5%9B%BE/"/>
     
       <category term="手势" scheme="https://amosbaby.github.io/tags/%E6%89%8B%E5%8A%BF/"/>
     
       <category term="密码" scheme="https://amosbaby.github.io/tags/%E5%AF%86%E7%A0%81/"/>
+    
+      <category term="swift" scheme="https://amosbaby.github.io/tags/swift/"/>
     
   </entry>
   
