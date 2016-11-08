@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="Amos 的个人博客">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Amos Lee">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="swift学习笔记（一）"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Amos 的个人博客" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Amos‘s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>swift学习笔记（一） - Amos‘s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2016/11/07/2016-11-08/">
+                swift学习笔记（一）
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016-11-07</span>
+            
+            <a href="#disqus_thread" class="comments">Kommentare</a>
+            
+                <span class="category">
+                    <a href="/categories/日记/">日记</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h2 id="1-协议"><a href="#1-协议" class="headerlink" title="1.协议"></a>1.协议</h2><ol>
+<li>使用<strong>protocol</strong>来声明一个协议</li>
+</ol>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">protocol TestProtocol&#123;</div><div class="line">   var description:String&#123;get&#125;</div><div class="line">   </div><div class="line">   mutating func printDescritpion()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><ol>
+<li>Classes, enumerations,和 structs都可以继承一个协议</li>
+</ol>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class TestClass:TestProtocol&#123;</div><div class="line">    var description: String = &quot;TestClass&quot;</div><div class="line">    </div><div class="line">    var length: Int  &#123;</div><div class="line">        get&#123;/Users/amos/source/_posts/swift学习笔记（一）.md</div><div class="line">            return self.description.characters.count</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    func printDescritpion() &#123;</div><div class="line">        self.description += &quot;---\(length)&quot;</div><div class="line">        print(self.description + &quot; \(length)&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">TestClass().printDescritpion()</div><div class="line"></div><div class="line">struct TestStruct: TestProtocol&#123;</div><div class="line">    var sum  = 1024</div><div class="line">    var description: String = &quot;TestStuct&quot;</div><div class="line">    </div><div class="line">    mutating func printDescritpion() &#123;</div><div class="line">        self.description += &quot;---\(sum)&quot;</div><div class="line">        print(self.description)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><h2 id="2-extension-–-扩展"><a href="#2-extension-–-扩展" class="headerlink" title="2. extension – 扩展"></a>2. extension – 扩展</h2><blockquote>
+<p>可以给自定义的类，或已有的cocoa框架提供的类，甚至类库或者框架里面的类添加 新的 <em>**属性（成员变量）或者 方法</em></p>
+</blockquote>
+<ol>
+<li><p>给已有的类添加</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">extension String:TestProtocol&#123;</div><div class="line">    var description : String&#123;</div><div class="line">        return &quot;the string is \(self)&quot;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    mutating func printDescritpion() &#123;</div><div class="line">        self += &quot; fuck you&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>给自定义的类添加</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">	extension TestClass&#123;</div><div class="line">    func eat()&#123;</div><div class="line">        print(&quot;吃饭饭&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="3-Diffrence-between-Function-and-Generic-Function-in-swift"><a href="#3-Diffrence-between-Function-and-Generic-Function-in-swift" class="headerlink" title="3. Diffrence between Function and Generic Function in swift"></a>3. Diffrence between Function and Generic Function in swift</h2><h3 id="普通function与泛型function之间的区别"><a href="#普通function与泛型function之间的区别" class="headerlink" title="普通function与泛型function之间的区别"></a>普通function与泛型function之间的区别</h3><blockquote>
+<p>swift中的泛型function 有助于提升代码的安全性 </p>
+</blockquote>
+<p><a href="http://stackoverflow.com/questions/24378452/diffrence-between-function-and-generic-function-in-swift" target="_blank" rel="external">stackoverflow.上的一个很好的帖子有助于理解</a></p>
+<h2 id="4-类的初始化"><a href="#4-类的初始化" class="headerlink" title="4.类的初始化"></a>4.类的初始化</h2><blockquote>
+<p>举例说明：Person类有两个 属性： name 和 age，Student 类继承了Person类，并添加了一个 stuNo(学号)的属性，此时自定义Student 初始化函数时想要初始化stuNo，要在调用super.init（）之前设置stuNo的值</p>
+</blockquote>
+<ul>
+<li>代码如下:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class Person&#123;</div><div class="line">    var name:String?</div><div class="line">    var age : Int</div><div class="line"></div><div class="line">    init(name: String, age: Int) &#123;</div><div class="line">        self.name = name</div><div class="line">        self.age = age</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">class Student:Person&#123;</div><div class="line">    var stuNo: Int</div><div class="line">    let gender  : Int // 可以在init中初始化该常量</div><div class="line">    init(name:String, age: Int, stuNo:Int) &#123;</div><div class="line">        /**</div><div class="line">            如果常量gender和变量stuNo的初始化放在super.init之后会提示error</div><div class="line">         </div><div class="line">         */</div><div class="line">        self.stuNo = stuNo</div><div class="line">        self.gender = 0</div><div class="line">        super.init(name: name, age: age)</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="类的初始化函数的三条铁律："><a href="#类的初始化函数的三条铁律：" class="headerlink" title="类的初始化函数的三条铁律："></a>类的初始化函数的三条铁律：</h3><ul>
+<li>Rule one: 一个</li>
+</ul>
+<h2 id="5-循环引用于weak，unowned"><a href="#5-循环引用于weak，unowned" class="headerlink" title="5.循环引用于weak，unowned"></a>5.循环引用于weak，unowned</h2><p> <strong>循环引用有以下三个常见场景：</strong></p>
+<ol>
+<li>引用的双方都可以为nil，以下是从<a href="">The swift Programing Language(swift 3)</a>原文中山寨的例子:</li>
+</ol>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"> class Person&#123;</div><div class="line">    var name:String</div><div class="line">    var house:Apartment?</div><div class="line">    init(name:String) &#123;</div><div class="line">        self.name = name</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    deinit &#123;</div><div class="line">        print(&quot;\(name) die&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Apartment&#123;</div><div class="line">    weak var host:Person?</div><div class="line">    </div><div class="line">    init(host:Person) &#123;</div><div class="line">        self.host = host</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    deinit &#123;</div><div class="line">        print(&quot;host \(host?.name) die&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var amos:Person? = Person(name: &quot;amos&quot;)</div><div class="line"></div><div class="line">var house:Apartment? = Apartment(host: amos!)</div><div class="line">amos?.house = house</div><div class="line">amos = nil</div></pre></td></tr></table></figure>
+<p> 打印结果: <code>amos die</code></p>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/Hexo/">#Hexo</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2016/11/08/手势密码-swift3-0版/">手势密码 swift3.0版</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2016/11/07/2016-11-08/">swift学习笔记（一）</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/swift/">swift</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/日记/">日记</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://plus.google.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
