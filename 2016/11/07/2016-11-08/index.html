@@ -68,10 +68,12 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hexo," />
 
 
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
@@ -86,40 +88,37 @@
 
 
 
-<meta name="description" content="swift学习笔记（一）
-
-##1.协议
-
+<meta name="description" content="1.协议
 使用protocol来声明一个协议
 
 12345protocol TestProtocol&amp;#123;   var description:String&amp;#123;get&amp;#125;      mutating func printDescritpion()&amp;#125;
 
-Classes, enumerations,和 structs都可以继承一个协议">
+Classes, enumerations,和 structs都可以继承一个协议
+
+1234567891011121">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="swift学习笔记（一）">
 <meta property="og:url" content="http://yoursite.com/2016/11/07/2016-11-08/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="swift学习笔记（一）
-
-##1.协议
-
+<meta property="og:description" content="1.协议
 使用protocol来声明一个协议
 
 12345protocol TestProtocol&amp;#123;   var description:String&amp;#123;get&amp;#125;      mutating func printDescritpion()&amp;#125;
 
-Classes, enumerations,和 structs都可以继承一个协议">
-<meta property="og:updated_time" content="2016-11-07T12:43:48.000Z">
+Classes, enumerations,和 structs都可以继承一个协议
+
+1234567891011121">
+<meta property="og:updated_time" content="2016-11-08T01:55:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="swift学习笔记（一）
-
-##1.协议
-
+<meta name="twitter:title" content="swift学习笔记（一）">
+<meta name="twitter:description" content="1.协议
 使用protocol来声明一个协议
 
 12345protocol TestProtocol&amp;#123;   var description:String&amp;#123;get&amp;#125;      mutating func printDescritpion()&amp;#125;
 
-Classes, enumerations,和 structs都可以继承一个协议">
+Classes, enumerations,和 structs都可以继承一个协议
+
+1234567891011121">
 
 
 
@@ -143,7 +142,7 @@ Classes, enumerations,和 structs都可以继承一个协议">
   <link rel="canonical" href="http://yoursite.com/2016/11/07/2016-11-08/"/>
 
 
-  <title>  | Hexo </title>
+  <title> swift学习笔记（一） | Hexo </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-tw">
@@ -281,7 +280,7 @@ Classes, enumerations,和 structs都可以继承一个协议">
             
             
               
-                
+                swift学习笔记（一）
               
             
           </h1>
@@ -298,6 +297,25 @@ Classes, enumerations,和 structs都可以继承一个协议">
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/日记/" itemprop="url" rel="index">
+                    <span itemprop="name">日记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -321,11 +339,7 @@ Classes, enumerations,和 structs都可以继承一个协议">
       
 
       
-        <hr>
-<p>swift学习笔记（一）</p>
-<hr>
-<p>##1.协议</p>
-<ol>
+        <h2 id="1-协议"><a href="#1-协议" class="headerlink" title="1.协议"></a>1.协议</h2><ol>
 <li>使用<strong>protocol</strong>来声明一个协议</li>
 </ol>
 <pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">protocol TestProtocol&#123;</div><div class="line">   var description:String&#123;get&#125;</div><div class="line">   </div><div class="line">   mutating func printDescritpion()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -333,8 +347,7 @@ Classes, enumerations,和 structs都可以继承一个协议">
 <li>Classes, enumerations,和 structs都可以继承一个协议</li>
 </ol>
 <pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class TestClass:TestProtocol&#123;</div><div class="line">    var description: String = &quot;TestClass&quot;</div><div class="line">    </div><div class="line">    var length: Int  &#123;</div><div class="line">        get&#123;/Users/amos/source/_posts/swift学习笔记（一）.md</div><div class="line">            return self.description.characters.count</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    func printDescritpion() &#123;</div><div class="line">        self.description += &quot;---\(length)&quot;</div><div class="line">        print(self.description + &quot; \(length)&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">TestClass().printDescritpion()</div><div class="line"></div><div class="line">struct TestStruct: TestProtocol&#123;</div><div class="line">    var sum  = 1024</div><div class="line">    var description: String = &quot;TestStuct&quot;</div><div class="line">    </div><div class="line">    mutating func printDescritpion() &#123;</div><div class="line">        self.description += &quot;---\(sum)&quot;</div><div class="line">        print(self.description)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><p>##2. extension – 扩展</p>
-<blockquote>
+</code></pre><h2 id="2-extension-–-扩展"><a href="#2-extension-–-扩展" class="headerlink" title="2. extension – 扩展"></a>2. extension – 扩展</h2><blockquote>
 <p>可以给自定义的类，或已有的cocoa框架提供的类，甚至类库或者框架里面的类添加 新的 <em>**属性（成员变量）或者 方法</em></p>
 </blockquote>
 <ol>
@@ -345,21 +358,18 @@ Classes, enumerations,和 structs都可以继承一个协议">
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">	extension TestClass&#123;</div><div class="line">    func eat()&#123;</div><div class="line">        print(&quot;吃饭饭&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>##3. Diffrence between Function and Generic Function in swift</p>
-<h3 id="普通function与泛型function之间的区别"><a href="#普通function与泛型function之间的区别" class="headerlink" title="普通function与泛型function之间的区别"></a>普通function与泛型function之间的区别</h3><blockquote>
+<h2 id="3-Diffrence-between-Function-and-Generic-Function-in-swift"><a href="#3-Diffrence-between-Function-and-Generic-Function-in-swift" class="headerlink" title="3. Diffrence between Function and Generic Function in swift"></a>3. Diffrence between Function and Generic Function in swift</h2><h3 id="普通function与泛型function之间的区别"><a href="#普通function与泛型function之间的区别" class="headerlink" title="普通function与泛型function之间的区别"></a>普通function与泛型function之间的区别</h3><blockquote>
 <p>swift中的泛型function 有助于提升代码的安全性 </p>
 </blockquote>
 <p><a href="http://stackoverflow.com/questions/24378452/diffrence-between-function-and-generic-function-in-swift" target="_blank" rel="external">stackoverflow.上的一个很好的帖子有助于理解</a></p>
-<p>##4.类的初始化</p>
-<blockquote>
+<h2 id="4-类的初始化"><a href="#4-类的初始化" class="headerlink" title="4.类的初始化"></a>4.类的初始化</h2><blockquote>
 <p>举例说明：Person类有两个 属性： name 和 age，Student 类继承了Person类，并添加了一个 stuNo(学号)的属性，此时自定义Student 初始化函数时想要初始化stuNo，要在调用super.init（）之前设置stuNo的值</p>
 </blockquote>
 <ul>
 <li>代码如下:</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class Person&#123;</div><div class="line">    var name:String?</div><div class="line">    var age : Int</div><div class="line"></div><div class="line">    init(name: String, age: Int) &#123;</div><div class="line">        self.name = name</div><div class="line">        self.age = age</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">class Student:Person&#123;</div><div class="line">    var stuNo: Int</div><div class="line">    let gender  : Int // 可以在init中初始化该常量</div><div class="line">    init(name:String, age: Int, stuNo:Int) &#123;</div><div class="line">        /**</div><div class="line">            如果常量gender和变量stuNo的初始化放在super.init之后会提示error</div><div class="line">         </div><div class="line">         */</div><div class="line">        self.stuNo = stuNo</div><div class="line">        self.gender = 0</div><div class="line">        super.init(name: name, age: age)</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>###类的初始化函数的三条铁律：</p>
-<ul>
+<h3 id="类的初始化函数的三条铁律："><a href="#类的初始化函数的三条铁律：" class="headerlink" title="类的初始化函数的三条铁律："></a>类的初始化函数的三条铁律：</h3><ul>
 <li>Rule one: 一个</li>
 </ul>
 <h2 id="5-循环引用于weak，unowned"><a href="#5-循环引用于weak，unowned" class="headerlink" title="5.循环引用于weak，unowned"></a>5.循环引用于weak，unowned</h2><p> <strong>循环引用有以下三个常见场景：</strong></p>
@@ -389,6 +399,12 @@ Classes, enumerations,和 structs都可以继承一个协议">
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
@@ -398,8 +414,8 @@ Classes, enumerations,和 structs都可以继承一个协议">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/07/2016-11-08的副本/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/08/手势密码-swift3-0版/" rel="prev" title="手势密码 swift3.0版">
+                手势密码 swift3.0版 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -460,10 +476,10 @@ Classes, enumerations,和 structs都可以继承一个协议">
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
-          <p class="site-description motion-element" itemprop="description"></p>
+               src="http://upload.jianshu.io/users/upload_avatars/1300710/3644adf4e444?imageMogr/thumbnail/90x90/quality/100"
+               alt="Amos Lee" />
+          <p class="site-author-name" itemprop="name">Amos Lee</p>
+          <p class="site-description motion-element" itemprop="description">Amos 的个人博客</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -474,7 +490,21 @@ Classes, enumerations,和 structs都可以继承一个协议">
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -507,7 +537,7 @@ Classes, enumerations,和 structs都可以继承一个协议">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通function与泛型function之间的区别"><span class="nav-number">1.</span> <span class="nav-text">普通function与泛型function之间的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-循环引用于weak，unowned"><span class="nav-number"></span> <span class="nav-text">5.循环引用于weak，unowned</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-协议"><span class="nav-number">1.</span> <span class="nav-text">1.协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-extension-–-扩展"><span class="nav-number">2.</span> <span class="nav-text">2. extension – 扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Diffrence-between-Function-and-Generic-Function-in-swift"><span class="nav-number">3.</span> <span class="nav-text">3. Diffrence between Function and Generic Function in swift</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通function与泛型function之间的区别"><span class="nav-number">3.1.</span> <span class="nav-text">普通function与泛型function之间的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-类的初始化"><span class="nav-number">4.</span> <span class="nav-text">4.类的初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类的初始化函数的三条铁律："><span class="nav-number">4.1.</span> <span class="nav-text">类的初始化函数的三条铁律：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-循环引用于weak，unowned"><span class="nav-number">5.</span> <span class="nav-text">5.循环引用于weak，unowned</span></a></li></ol></div>
             
           </div>
         </section>
@@ -530,7 +560,7 @@ Classes, enumerations,和 structs都可以继承一个协议">
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">Amos Lee</span>
 </div>
 
 <div class="powered-by">

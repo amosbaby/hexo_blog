@@ -1,28 +1,328 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+<!doctype html>
+
+
+
   
-  <link href="/atom.xml" rel="self"/>
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
   
-  <link href="http://yoursite.com/"/>
-  <updated>2016-11-08T02:00:26.000Z</updated>
-  <id>http://yoursite.com/</id>
   
-  <author>
-    <name>Amos Lee</name>
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
     
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>手势密码 swift3.0版</title>
-    <link href="http://yoursite.com/2016/11/08/%E6%89%8B%E5%8A%BF%E5%AF%86%E7%A0%81-swift3-0%E7%89%88/"/>
-    <id>http://yoursite.com/2016/11/08/手势密码-swift3-0版/</id>
-    <published>2016-11-08T01:57:02.000Z</published>
-    <updated>2016-11-08T02:00:26.000Z</updated>
     
-    <content type="html"><![CDATA[<blockquote>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="绘图,手势,密码,swift," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="闲来无事学习swift3.0，顺手写了个手势密码的demo来巩固一下. 代码中自定义了两个类，一个是NumberButton用来控制Button的，一个是GesturePasswordView，是用来显示密码面板的。绘图部分就是在GesturePasswordView上进行的。下面直接上代码，代码中有相关的注释，代码也比较简单。
+
+1、NumberButton的定义123456789101112">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手势密码 swift3.0版">
+<meta property="og:url" content="http://yoursite.com/2016/11/08/手势密码-swift3-0版/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="闲来无事学习swift3.0，顺手写了个手势密码的demo来巩固一下. 代码中自定义了两个类，一个是NumberButton用来控制Button的，一个是GesturePasswordView，是用来显示密码面板的。绘图部分就是在GesturePasswordView上进行的。下面直接上代码，代码中有相关的注释，代码也比较简单。
+
+1、NumberButton的定义123456789101112">
+<meta property="og:updated_time" content="2016-11-08T02:00:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="手势密码 swift3.0版">
+<meta name="twitter:description" content="闲来无事学习swift3.0，顺手写了个手势密码的demo来巩固一下. 代码中自定义了两个类，一个是NumberButton用来控制Button的，一个是GesturePasswordView，是用来显示密码面板的。绘图部分就是在GesturePasswordView上进行的。下面直接上代码，代码中有相关的注释，代码也比较简单。
+
+1、NumberButton的定义123456789101112">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/08/手势密码-swift3-0版/"/>
+
+
+  <title> 手势密码 swift3.0版 | Hexo </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-tw">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                手势密码 swift3.0版
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-11-08T09:57:02+08:00" content="2016-11-08">
+              2016-11-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/swift/" itemprop="url" rel="index">
+                    <span itemprop="name">swift</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
 <p>闲来无事学习swift3.0，顺手写了个手势密码的demo来巩固一下. 代码中自定义了两个类，一个是NumberButton用来控制Button的，一个是GesturePasswordView，是用来显示密码面板的。绘图部分就是在GesturePasswordView上进行的。下面直接上代码，代码中有相关的注释，代码也比较简单。</p>
 </blockquote>
 <h2 id="1、NumberButton的定义"><a href="#1、NumberButton的定义" class="headerlink" title="1、NumberButton的定义"></a>1、NumberButton的定义</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class NumberButton: UIButton &#123;</div><div class="line">    </div><div class="line">    override init(frame: CGRect) &#123;</div><div class="line">        super.init(frame: frame)</div><div class="line">        self .setup()</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    required init?(coder aDecoder: NSCoder) &#123;</div><div class="line">        fatalError(&quot;init(coder:) has not been implemented&quot;)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    func setup()&#123;</div><div class="line">        </div><div class="line">        self.layer.borderColor = UIColor.green.cgColor</div><div class="line">        self.layer.borderWidth = 5</div><div class="line">        self.layer.cornerRadius = self.width * 0.5</div><div class="line">        self.layer.masksToBounds = true</div><div class="line">        self.isUserInteractionEnabled = false</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -31,91 +331,309 @@
 <p>其中我提供了一个队UIView的frame下size，origin，x，y，width，height属性的快捷访问方法，实现如下:</p>
 </blockquote>
 <h2 id="3、UIView下size，origin，x，y，width，height属性的快捷访问方法"><a href="#3、UIView下size，origin，x，y，width，height属性的快捷访问方法" class="headerlink" title="3、UIView下size，origin，x，y，width，height属性的快捷访问方法"></a>3、UIView下size，origin，x，y，width，height属性的快捷访问方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">extension UIView&#123;</div><div class="line">    </div><div class="line">    var size:CGSize &#123;</div><div class="line">         get&#123;</div><div class="line">            return self.frame.size</div><div class="line">        &#125;</div><div class="line">         set&#123;</div><div class="line">            self.frame.size = newValue</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    var origin: CGPoint &#123;</div><div class="line">         get&#123;</div><div class="line">            return self.frame.origin</div><div class="line">        &#125;</div><div class="line">         set&#123;</div><div class="line">            self.frame.origin = newValue</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    var width:CGFloat&#123;</div><div class="line">         get&#123;</div><div class="line">            return self.size.width</div><div class="line">        &#125;</div><div class="line">        set&#123;</div><div class="line">            self.size.width = newValue</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    var height:CGFloat&#123;</div><div class="line">         get&#123;</div><div class="line">            return self.size.height</div><div class="line">        &#125;</div><div class="line">        set&#123;</div><div class="line">            self.size.height = newValue</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    var x:CGFloat&#123;</div><div class="line">        get&#123;</div><div class="line">            return self.origin.x</div><div class="line">        &#125;</div><div class="line">        set&#123;</div><div class="line">            self.origin.x = newValue</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    var y:CGFloat&#123;</div><div class="line">        get&#123;</div><div class="line">            return self.origin.y</div><div class="line">        &#125;</div><div class="line">        set&#123;</div><div class="line">            self.origin.y = newValue</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/绘图/" rel="tag">#绘图</a>
+          
+            <a href="/tags/手势/" rel="tag">#手势</a>
+          
+            <a href="/tags/密码/" rel="tag">#密码</a>
+          
+            <a href="/tags/swift/" rel="tag">#swift</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/07/2016-11-08/" rel="next" title="swift学习笔记（一）">
+                <i class="fa fa-chevron-left"></i> swift学习笔记（一）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
     
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;闲来无事学习swift3.0，顺手写了个手势密码的demo来巩固一下. 代码中自定义了两个类，一个是NumberButton用来控制Button的，一个是GesturePasswordView，是用来显示密码面板的。绘图部分就是在GesturePa
-    
-    </summary>
-    
-      <category term="swift" scheme="http://yoursite.com/categories/swift/"/>
-    
-    
-      <category term="绘图" scheme="http://yoursite.com/tags/%E7%BB%98%E5%9B%BE/"/>
-    
-      <category term="手势" scheme="http://yoursite.com/tags/%E6%89%8B%E5%8A%BF/"/>
-    
-      <category term="密码" scheme="http://yoursite.com/tags/%E5%AF%86%E7%A0%81/"/>
-    
-      <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
-    
-  </entry>
+  </div>
+
+
+        </div>
+        
+          
   
-  <entry>
-    <title>swift学习笔记（一）</title>
-    <link href="http://yoursite.com/2016/11/07/2016-11-08/"/>
-    <id>http://yoursite.com/2016/11/07/2016-11-08/</id>
-    <published>2016-11-07T12:39:35.000Z</published>
-    <updated>2016-11-08T01:55:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-协议"><a href="#1-协议" class="headerlink" title="1.协议"></a>1.协议</h2><ol>
-<li>使用<strong>protocol</strong>来声明一个协议</li>
-</ol>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">protocol TestProtocol&#123;</div><div class="line">   var description:String&#123;get&#125;</div><div class="line">   </div><div class="line">   mutating func printDescritpion()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><ol>
-<li>Classes, enumerations,和 structs都可以继承一个协议</li>
-</ol>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class TestClass:TestProtocol&#123;</div><div class="line">    var description: String = &quot;TestClass&quot;</div><div class="line">    </div><div class="line">    var length: Int  &#123;</div><div class="line">        get&#123;/Users/amos/source/_posts/swift学习笔记（一）.md</div><div class="line">            return self.description.characters.count</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    func printDescritpion() &#123;</div><div class="line">        self.description += &quot;---\(length)&quot;</div><div class="line">        print(self.description + &quot; \(length)&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">TestClass().printDescritpion()</div><div class="line"></div><div class="line">struct TestStruct: TestProtocol&#123;</div><div class="line">    var sum  = 1024</div><div class="line">    var description: String = &quot;TestStuct&quot;</div><div class="line">    </div><div class="line">    mutating func printDescritpion() &#123;</div><div class="line">        self.description += &quot;---\(sum)&quot;</div><div class="line">        print(self.description)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><h2 id="2-extension-–-扩展"><a href="#2-extension-–-扩展" class="headerlink" title="2. extension – 扩展"></a>2. extension – 扩展</h2><blockquote>
-<p>可以给自定义的类，或已有的cocoa框架提供的类，甚至类库或者框架里面的类添加 新的 <em>**属性（成员变量）或者 方法</em></p>
-</blockquote>
-<ol>
-<li><p>给已有的类添加</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">extension String:TestProtocol&#123;</div><div class="line">    var description : String&#123;</div><div class="line">        return &quot;the string is \(self)&quot;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    mutating func printDescritpion() &#123;</div><div class="line">        self += &quot; fuck you&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>给自定义的类添加</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">	extension TestClass&#123;</div><div class="line">    func eat()&#123;</div><div class="line">        print(&quot;吃饭饭&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="3-Diffrence-between-Function-and-Generic-Function-in-swift"><a href="#3-Diffrence-between-Function-and-Generic-Function-in-swift" class="headerlink" title="3. Diffrence between Function and Generic Function in swift"></a>3. Diffrence between Function and Generic Function in swift</h2><h3 id="普通function与泛型function之间的区别"><a href="#普通function与泛型function之间的区别" class="headerlink" title="普通function与泛型function之间的区别"></a>普通function与泛型function之间的区别</h3><blockquote>
-<p>swift中的泛型function 有助于提升代码的安全性 </p>
-</blockquote>
-<p><a href="http://stackoverflow.com/questions/24378452/diffrence-between-function-and-generic-function-in-swift" target="_blank" rel="external">stackoverflow.上的一个很好的帖子有助于理解</a></p>
-<h2 id="4-类的初始化"><a href="#4-类的初始化" class="headerlink" title="4.类的初始化"></a>4.类的初始化</h2><blockquote>
-<p>举例说明：Person类有两个 属性： name 和 age，Student 类继承了Person类，并添加了一个 stuNo(学号)的属性，此时自定义Student 初始化函数时想要初始化stuNo，要在调用super.init（）之前设置stuNo的值</p>
-</blockquote>
-<ul>
-<li>代码如下:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class Person&#123;</div><div class="line">    var name:String?</div><div class="line">    var age : Int</div><div class="line"></div><div class="line">    init(name: String, age: Int) &#123;</div><div class="line">        self.name = name</div><div class="line">        self.age = age</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">class Student:Person&#123;</div><div class="line">    var stuNo: Int</div><div class="line">    let gender  : Int // 可以在init中初始化该常量</div><div class="line">    init(name:String, age: Int, stuNo:Int) &#123;</div><div class="line">        /**</div><div class="line">            如果常量gender和变量stuNo的初始化放在super.init之后会提示error</div><div class="line">         </div><div class="line">         */</div><div class="line">        self.stuNo = stuNo</div><div class="line">        self.gender = 0</div><div class="line">        super.init(name: name, age: age)</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="类的初始化函数的三条铁律："><a href="#类的初始化函数的三条铁律：" class="headerlink" title="类的初始化函数的三条铁律："></a>类的初始化函数的三条铁律：</h3><ul>
-<li>Rule one: 一个</li>
-</ul>
-<h2 id="5-循环引用于weak，unowned"><a href="#5-循环引用于weak，unowned" class="headerlink" title="5.循环引用于weak，unowned"></a>5.循环引用于weak，unowned</h2><p> <strong>循环引用有以下三个常见场景：</strong></p>
-<ol>
-<li>引用的双方都可以为nil，以下是从<a href="">The swift Programing Language(swift 3)</a>原文中山寨的例子:</li>
-</ol>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"> class Person&#123;</div><div class="line">    var name:String</div><div class="line">    var house:Apartment?</div><div class="line">    init(name:String) &#123;</div><div class="line">        self.name = name</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    deinit &#123;</div><div class="line">        print(&quot;\(name) die&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Apartment&#123;</div><div class="line">    weak var host:Person?</div><div class="line">    </div><div class="line">    init(host:Person) &#123;</div><div class="line">        self.host = host</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    deinit &#123;</div><div class="line">        print(&quot;host \(host?.name) die&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var amos:Person? = Person(name: &quot;amos&quot;)</div><div class="line"></div><div class="line">var house:Apartment? = Apartment(host: amos!)</div><div class="line">amos?.house = house</div><div class="line">amos = nil</div></pre></td></tr></table></figure>
-<p> 打印结果: <code>amos die</code></p>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-协议&quot;&gt;&lt;a href=&quot;#1-协议&quot; class=&quot;headerlink&quot; title=&quot;1.协议&quot;&gt;&lt;/a&gt;1.协议&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;使用&lt;strong&gt;protocol&lt;/strong&gt;来声明一个协议&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code
-    
-    </summary>
-    
-      <category term="日记" scheme="http://yoursite.com/categories/%E6%97%A5%E8%AE%B0/"/>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
-    
-  </entry>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://upload.jianshu.io/users/upload_avatars/1300710/3644adf4e444?imageMogr/thumbnail/90x90/quality/100"
+               alt="Amos Lee" />
+          <p class="site-author-name" itemprop="name">Amos Lee</p>
+          <p class="site-description motion-element" itemprop="description">Amos 的个人博客</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、NumberButton的定义"><span class="nav-number">1.</span> <span class="nav-text">1、NumberButton的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、GesturePasswordView-定义"><span class="nav-number">2.</span> <span class="nav-text">2、GesturePasswordView 定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、UIView下size，origin，x，y，width，height属性的快捷访问方法"><span class="nav-number">3.</span> <span class="nav-text">3、UIView下size，origin，x，y，width，height属性的快捷访问方法</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
   
-</feed>
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Amos Lee</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
