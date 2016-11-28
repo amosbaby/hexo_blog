@@ -323,17 +323,11 @@
 
       
         
-          
-          ##1. AVAudioRecorder录音和AVAudioPlayer播放的音频声音很小解决方案
-
-在调用AVAudioPlayer的播放方法前，加入如下代码：
-
-12UInt32 doChangeDefaultRoute = 1;AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker,sizeof(doChangeDefaultRoute), &amp;doChangeDefaultRoute);
-##2. 上传到APP Store时遇到 URL Scheme的问题
-
-The following URL schemes found in your app are not in the correct format:[12345678]. URL schemes need to begi
-          ...
-
+          <h2 id="1-AVAudioRecorder录音和AVAudioPlayer播放的音频声音很小"><a href="#1-AVAudioRecorder录音和AVAudioPlayer播放的音频声音很小" class="headerlink" title="1. AVAudioRecorder录音和AVAudioPlayer播放的音频声音很小"></a>1. AVAudioRecorder录音和AVAudioPlayer播放的音频声音很小</h2><p><strong>解决方案</strong></p>
+<blockquote>
+<p>在调用AVAudioPlayer的播放方法前，加入如下代码：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UInt32 doChangeDefaultRoute = 1;</div><div class="line">AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker,sizeof(doChangeDefaultRoute), &amp;doChangeDefaultRoute);</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/hexo_blog/2016/11/28/项目遇到的问题/#more" rel="contents">
               閱讀全文 &raquo;
