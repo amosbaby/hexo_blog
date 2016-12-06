@@ -304,20 +304,14 @@
 
       
         
-          
-          
-在mac os（serria 10.12）上配置opencart时的第三步遇到了 no such file or directory的错误，如下图
-
-
-问题分析：
-
-这应该是php在定位mysql的sock时找错了位置，这个问题stackoverflow上给了一个解决办法，链接如右: php 连接mysql 显示no such file or dictinary问题解决方案
-
-其实就是php.ini配置的sock路径错了，只需要把路径纠正一下就好了.以下是详细步骤：
-1.首先检查一下是否有/tmp/mysql.sock 而没有/var/mysql/mysql.sock，然后执行一下操作12345cd /var sudo mkdir mysql  sudo chmod 755 mysqlcd mysqlsudo ln -s /tmp/mysql.sock mysql.sock
-2. 重启A
-          ...
-
+          <blockquote>
+<p>在mac os（serria 10.12）上配置opencart时的第三步遇到了 no such file or directory的错误，如下图<br><img src="http://ohi37paqz.bkt.clouddn.com/blog/opencart-install-step3Snip20161201_1.png" alt="error image"></p>
+</blockquote>
+<p><strong>问题分析：</strong></p>
+<blockquote>
+<p>这应该是php在定位mysql的sock时找错了位置，这个问题<br>stackoverflow上给了一个解决办法，链接如右: <a href="http://stackoverflow.com/questions/4219970/warning-mysql-connect-2002-no-such-file-or-directory-trying-to-connect-vi">php 连接mysql 显示no such file or dictinary问题解决方案</a></p>
+</blockquote>
+<p>其实就是php.ini配置的sock路径错了，只需要把路径纠正一下就好了.</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/hexo_blog/2016/12/01/ opencart_problemin_step3/#more" rel="contents">
               閱讀全文 &raquo;
