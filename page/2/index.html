@@ -89,7 +89,7 @@
 <meta name="description" content="Amos 的个人博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Amos‘s Blog">
-<meta property="og:url" content="https://amosbaby.github.io/categories/分类/index.html">
+<meta property="og:url" content="https://amosbaby.github.io/page/2/index.html">
 <meta property="og:site_name" content="Amos‘s Blog">
 <meta property="og:description" content="Amos 的个人博客">
 <meta name="twitter:card" content="summary">
@@ -115,10 +115,10 @@
 
 
 
-  <link rel="canonical" href="https://amosbaby.github.io/categories/分类/"/>
+  <link rel="canonical" href="https://amosbaby.github.io/page/2/"/>
 
 
-  <title> 分類: 分类 | Amos‘s Blog </title>
+  <title> Amos‘s Blog </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-tw">
@@ -149,7 +149,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -220,40 +222,279 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+  <section id="posts" class="posts-expand">
+    
+      
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        分类
-        <small>分類</small>
-      </h2>
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/hexo_blog/2016/11/08/手势密码-swift3-0版/" itemprop="url">
+                  手势密码 swift3.0版
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-11-08T09:57:02+08:00" content="2016-11-08">
+              2016-11-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/hexo_blog/categories/swift/" itemprop="url" rel="index">
+                    <span itemprop="name">swift</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/hexo_blog/2016/11/08/手势密码-swift3-0版/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/08/手势密码-swift3-0版/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/hexo_blog/2016/11/08/手势密码-swift3-0版/" class="leancloud_visitors" data-flag-title="手势密码 swift3.0版">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">閱讀次數 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 -->
+<!-- 其中 class="blockquote-center" 是必须的 -->
+  <blockquote class="blockquote-center">人生的两大悲剧：一是踌躇满志，一是万念俱灰!</blockquote>
+
+<blockquote>
+<p>闲来无事学习swift3.0，顺手写了个手势密码的demo来巩固一下. 代码中自定义了两个类，一个是NumberButton用来控制Button的，一个是GesturePasswordView，是用来显示密码面板的。绘图部分就是在GesturePasswordView上进行的。下面直接上代码，代码中有相关的注释，代码也比较简单。</p>
+</blockquote>
+<h2 id="1、NumberButton的定义"><a href="#1、NumberButton的定义" class="headerlink" title="1、NumberButton的定义"></a>1、NumberButton的定义</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class NumberButton: UIButton &#123;</div><div class="line">    </div><div class="line">    override init(frame: CGRect) &#123;</div><div class="line">        super.init(frame: frame)</div><div class="line">        self .setup()</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    required init?(coder aDecoder: NSCoder) &#123;</div><div class="line">        fatalError(&quot;init(coder:) has not been implemented&quot;)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    func setup()&#123;</div><div class="line">        </div><div class="line">        self.layer.borderColor = UIColor.green.cgColor</div><div class="line">        self.layer.borderWidth = 5</div><div class="line">        self.layer.cornerRadius = self.width * 0.5</div><div class="line">        self.layer.masksToBounds = true</div><div class="line">        self.isUserInteractionEnabled = false</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/hexo_blog/2016/11/08/手势密码-swift3-0版/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+        
+      
     </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
 
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
+  
+  
 
-      <h1 class="post-title">
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/hexo_blog/2016/11/28/项目遇到的问题/" itemprop="url">
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
               
-                <span itemprop="name">项目遇到的问题</span>
+                
+                <a class="post-title-link" href="/hexo_blog/2016/11/07/2016-11-08/" itemprop="url">
+                  swift学习笔记（一）
+                </a>
               
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-11-07T20:39:35+08:00" content="2016-11-07">
+              2016-11-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/hexo_blog/categories/日记/" itemprop="url" rel="index">
+                    <span itemprop="name">日记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/hexo_blog/2016/11/07/2016-11-08/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/07/2016-11-08/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/hexo_blog/2016/11/07/2016-11-08/" class="leancloud_visitors" data-flag-title="swift学习笔记（一）">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">閱讀次數 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="1-协议"><a href="#1-协议" class="headerlink" title="1.协议"></a>1.协议</h2><ol>
+<li>使用<strong>protocol</strong>来声明一个协议</li>
+</ol>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">protocol TestProtocol&#123;</div><div class="line">   var description:String&#123;get&#125;</div><div class="line">   </div><div class="line">   mutating func printDescritpion()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><ol>
+<li>Classes, enumerations,和 structs都可以继承一个协议</li>
+</ol>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/hexo_blog/2016/11/07/2016-11-08/#more" rel="contents">
+              閱讀全文 &raquo;
             </a>
+          </div>
         
-      </h1>
+      
+    </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-28T11:24:07+08:00"
-              content="2016-11-28" >
-          11-28
-        </time>
-      </div>
+    <div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </article>
 
 
@@ -261,6 +502,9 @@
   </section>
 
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/hexo_blog/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/hexo_blog/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 
