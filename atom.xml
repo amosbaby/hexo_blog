@@ -5,7 +5,7 @@
   <link href="/hexo_blog/atom.xml" rel="self"/>
   
   <link href="https://amosbaby.github.io/"/>
-  <updated>2016-12-13T06:40:36.000Z</updated>
+  <updated>2016-12-19T08:30:17.000Z</updated>
   <id>https://amosbaby.github.io/</id>
   
   <author>
@@ -14,6 +14,114 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OC UI总结之--tableview相关用法和问题</title>
+    <link href="https://amosbaby.github.io/2016/12/19/tableview%E7%9B%B8%E5%85%B3%E7%94%A8%E6%B3%95%E5%92%8C%E9%97%AE%E9%A2%98/"/>
+    <id>https://amosbaby.github.io/2016/12/19/tableview相关用法和问题/</id>
+    <published>2016-12-19T08:22:02.000Z</published>
+    <updated>2016-12-19T08:30:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1-去除某个tableviewCell的分割线"><a href="#1-去除某个tableviewCell的分割线" class="headerlink" title="1. 去除某个tableviewCell的分割线"></a>1. 去除某个tableviewCell的分割线</h3><blockquote>
+<p>有时候部分tableviewCell不需要分割线，有些需要，这个时候可以给指定类的cell</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">-(void)addSubview:(UIView *)view&#123;</div><div class="line">    if (![view isKindOfClass:[NSClassFromString(@&quot;_UITableViewCellSeparatorView&quot;) class]] &amp;&amp; view) &#123;</div><div class="line">        [super addSubview:view];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-viewForHeaderInSection-的section从1开始而不是从0开始"><a href="#2-viewForHeaderInSection-的section从1开始而不是从0开始" class="headerlink" title="2. viewForHeaderInSection 的section从1开始而不是从0开始"></a>2. viewForHeaderInSection 的section从1开始而不是从0开始</h3><blockquote>
+<p>使用 -(UIView <em>)tableView:(UITableView </em>)tableView viewForHeaderInSection:(NSInteger)section 时发现section是从1开始而不是从0，最后查看API的时候发现原文中说道：</p>
+<blockquote>
+<p>This method only works correctly when tableView:heightForHeaderInSection: is also implemented.这个方法只有当tableView:heightForHeaderInSection:实现的时候才能正确执行。</p>
+</blockquote>
+<p>好吧，确实是一个天坑，谨记了。。。。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section&#123;</div><div class="line">    return 44;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>就好了</p>
+<h3 id="3-tableView设置UITableViewStyleGrouped顶部有空余高度"><a href="#3-tableView设置UITableViewStyleGrouped顶部有空余高度" class="headerlink" title="3. tableView设置UITableViewStyleGrouped顶部有空余高度"></a>3. tableView设置UITableViewStyleGrouped顶部有空余高度</h3><blockquote>
+<p>tableView 有两种UITableViewStyle ：</p>
+<blockquote>
+<ul>
+<li>UITableViewStylePlain 普通(默认值)</li>
+<li>UITableViewStyleGrouped 分组<br>默认情况下plain时第一行cell的上边界是和导航条（屏幕顶端）紧贴着的。如果你改成了grouped的话，就会有一个默认的间隙，这个间隙是scrollView（tableview也是一种）在导航栏下的自动缩进—个人理解，如果不对请指正。</li>
+</ul>
+</blockquote>
+</blockquote>
+<p>我尝试过如下方法：</p>
+<ul>
+<li>设置一个空的tableviewheader:  不行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];</div></pre></td></tr></table></figure>
+<ul>
+<li>设置第一个section的sectionHeader/FooterHeight 为0.01（<strong>iOS中设置为0相当于没设置！</strong>）也不行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section&#123;</div><div class="line">    return  0.01;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section&#123;</div><div class="line">    return 0.01;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####最终还是用设置contentInset收拾了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.tableView.contentInset = UIEdgeInsetsMake(-35, 0, 0, 0);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>目前还没弄明白为啥会这样，先放在这里做个笔记，以后好用。。。。，如果哪位知道请告知我一下，多谢。。。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1-去除某个tableviewCell的分割线&quot;&gt;&lt;a href=&quot;#1-去除某个tableviewCell的分割线&quot; class=&quot;headerlink&quot; title=&quot;1. 去除某个tableviewCell的分割线&quot;&gt;&lt;/a&gt;1. 去除某个tableview
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://amosbaby.github.io/2016/12/19/OC%20UI%E6%80%BB%E7%BB%93/"/>
+    <id>https://amosbaby.github.io/2016/12/19/OC UI总结/</id>
+    <published>2016-12-19T06:41:03.000Z</published>
+    <updated>2016-12-19T08:21:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="OC-UI总结之–tableview相关用法和问题"><a href="#OC-UI总结之–tableview相关用法和问题" class="headerlink" title="OC UI总结之–tableview相关用法和问题"></a>OC UI总结之–tableview相关用法和问题</h1><h3 id="1-去除某个tableviewCell的分割线"><a href="#1-去除某个tableviewCell的分割线" class="headerlink" title="1. 去除某个tableviewCell的分割线"></a>1. 去除某个tableviewCell的分割线</h3><blockquote>
+<p>有时候部分tableviewCell不需要分割线，有些需要，这个时候可以给指定类的cell</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">-(void)addSubview:(UIView *)view&#123;</div><div class="line">    if (![view isKindOfClass:[NSClassFromString(@&quot;_UITableViewCellSeparatorView&quot;) class]] &amp;&amp; view) &#123;</div><div class="line">        [super addSubview:view];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-viewForHeaderInSection-的section从1开始而不是从0开始"><a href="#2-viewForHeaderInSection-的section从1开始而不是从0开始" class="headerlink" title="2. viewForHeaderInSection 的section从1开始而不是从0开始"></a>2. viewForHeaderInSection 的section从1开始而不是从0开始</h3><blockquote>
+<p>使用 -(UIView <em>)tableView:(UITableView </em>)tableView viewForHeaderInSection:(NSInteger)section 时发现section是从1开始而不是从0，最后查看API的时候发现原文中说道：</p>
+<blockquote>
+<p>This method only works correctly when tableView:heightForHeaderInSection: is also implemented.这个方法只有当tableView:heightForHeaderInSection:实现的时候才能正确执行。</p>
+</blockquote>
+<p>好吧，确实是一个天坑，谨记了。。。。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section&#123;</div><div class="line">    return 44;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>就好了</p>
+<h3 id="3-tableView设置UITableViewStyleGrouped顶部有空余高度"><a href="#3-tableView设置UITableViewStyleGrouped顶部有空余高度" class="headerlink" title="3. tableView设置UITableViewStyleGrouped顶部有空余高度"></a>3. tableView设置UITableViewStyleGrouped顶部有空余高度</h3><blockquote>
+<p>tableView 有两种UITableViewStyle ：</p>
+<blockquote>
+<ul>
+<li>UITableViewStylePlain 普通(默认值)</li>
+<li>UITableViewStyleGrouped 分组<br>默认情况下plain时第一行cell的上边界是和导航条（屏幕顶端）紧贴着的。如果你改成了grouped的话，就会有一个默认的间隙，这个间隙是scrollView（tableview也是一种）在导航栏下的自动缩进—个人理解，如果不对请指正。</li>
+</ul>
+</blockquote>
+</blockquote>
+<p>我尝试过如下方法：</p>
+<ul>
+<li>设置一个空的tableviewheader:  不行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];</div></pre></td></tr></table></figure>
+<ul>
+<li>设置第一个section的sectionHeader/FooterHeight 为0.01（<strong>iOS中设置为0相当于没设置！</strong>）也不行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section&#123;</div><div class="line">    return  0.01;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section&#123;</div><div class="line">    return 0.01;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####最终还是用设置contentInset收拾了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.tableView.contentInset = UIEdgeInsetsMake(-35, 0, 0, 0);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>目前还没弄明白为啥会这样，先放在这里做个笔记，以后好用。。。。，如果哪位知道请告知我一下，多谢。。。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;OC-UI总结之–tableview相关用法和问题&quot;&gt;&lt;a href=&quot;#OC-UI总结之–tableview相关用法和问题&quot; class=&quot;headerlink&quot; title=&quot;OC UI总结之–tableview相关用法和问题&quot;&gt;&lt;/a&gt;OC UI总结之–ta
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>网站开发者工具和知识（for 零基础）</title>
