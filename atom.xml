@@ -5,7 +5,7 @@
   <link href="/hexo_blog/atom.xml" rel="self"/>
   
   <link href="https://amosbaby.github.io/"/>
-  <updated>2016-12-19T08:30:17.000Z</updated>
+  <updated>2016-12-19T08:37:22.000Z</updated>
   <id>https://amosbaby.github.io/</id>
   
   <author>
@@ -20,12 +20,13 @@
     <link href="https://amosbaby.github.io/2016/12/19/tableview%E7%9B%B8%E5%85%B3%E7%94%A8%E6%B3%95%E5%92%8C%E9%97%AE%E9%A2%98/"/>
     <id>https://amosbaby.github.io/2016/12/19/tableview相关用法和问题/</id>
     <published>2016-12-19T08:22:02.000Z</published>
-    <updated>2016-12-19T08:30:17.000Z</updated>
+    <updated>2016-12-19T08:37:22.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-去除某个tableviewCell的分割线"><a href="#1-去除某个tableviewCell的分割线" class="headerlink" title="1. 去除某个tableviewCell的分割线"></a>1. 去除某个tableviewCell的分割线</h3><blockquote>
 <p>有时候部分tableviewCell不需要分割线，有些需要，这个时候可以给指定类的cell</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">-(void)addSubview:(UIView *)view&#123;</div><div class="line">    if (![view isKindOfClass:[NSClassFromString(@&quot;_UITableViewCellSeparatorView&quot;) class]] &amp;&amp; view) &#123;</div><div class="line">        [super addSubview:view];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="2-viewForHeaderInSection-的section从1开始而不是从0开始"><a href="#2-viewForHeaderInSection-的section从1开始而不是从0开始" class="headerlink" title="2. viewForHeaderInSection 的section从1开始而不是从0开始"></a>2. viewForHeaderInSection 的section从1开始而不是从0开始</h3><blockquote>
 <p>使用 -(UIView <em>)tableView:(UITableView </em>)tableView viewForHeaderInSection:(NSInteger)section 时发现section是从1开始而不是从0，最后查看API的时候发现原文中说道：</p>
 <blockquote>
@@ -62,10 +63,15 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1-去除某个tableviewCell的分割线&quot;&gt;&lt;a href=&quot;#1-去除某个tableviewCell的分割线&quot; class=&quot;headerlink&quot; title=&quot;1. 去除某个tableviewCell的分割线&quot;&gt;&lt;/a&gt;1. 去除某个tableview
+      &lt;h3 id=&quot;1-去除某个tableviewCell的分割线&quot;&gt;&lt;a href=&quot;#1-去除某个tableviewCell的分割线&quot; class=&quot;headerlink&quot; title=&quot;1. 去除某个tableviewCell的分割线&quot;&gt;&lt;/a&gt;1. 去除某个tableviewCell的分割线&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;有时候部分tableviewCell不需要分割线，有些需要，这个时候可以给指定类的cell&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;-(void)addSubview:(UIView *)view&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    if (![view isKindOfClass:[NSClassFromString(@&amp;quot;_UITableViewCellSeparatorView&amp;quot;) class]] &amp;amp;&amp;amp; view) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        [super addSubview:view];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
+    
+      <category term="tableview, UI" scheme="https://amosbaby.github.io/tags/tableview-UI/"/>
     
   </entry>
   
