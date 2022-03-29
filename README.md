@@ -1,2 +1,2 @@
 # hexo_blog
-Amos‘s 个人博客a
+Amos‘s 个人博客
