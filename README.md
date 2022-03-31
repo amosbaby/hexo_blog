@@ -1,3 +1,3 @@
 # hexo_blog
-Amos‘s 个人博客22222
+Amos‘s 个人博客
 222
